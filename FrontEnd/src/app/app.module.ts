@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {ServiceService} from './service.service';
-import {AppModel} from './app.model';
-import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +14,7 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule ,
     FormsModule
   ],
   providers: [ServiceService],

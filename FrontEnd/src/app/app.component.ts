@@ -18,7 +18,9 @@ export class AppComponent {
     const password = form.value.password;
     console.log('username:: ' + username);
     console.log('password:: ' + password);
-    this.service.storeDemo({username , password});
+    this.service.storeDemo(username + ' :::: ' + password).subscribe(
+      (response) => {console.log(response); }
+    );
   }
 
 

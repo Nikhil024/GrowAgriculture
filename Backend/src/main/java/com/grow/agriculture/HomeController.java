@@ -4,15 +4,13 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Handles requests for the application home page.
@@ -38,13 +36,13 @@ public class HomeController {
 		
 		return "home";
 	}
-	
-	
-	@ResponseBody @RequestMapping(value = "user", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String getUser(@RequestBody String u) {
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@ResponseBody @RequestMapping(value = "user", method = RequestMethod.POST)
+	public User getUser(@RequestBody User user) {
 		logger.info("yes inside called");
-		logger.info(u.toString());
-		return "home";
+		logger.info(user.toString());
+		return user;
 	}
 	
 	
